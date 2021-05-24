@@ -112,9 +112,37 @@ nlu:
     - [Maharastra] {"entity":"state","value":"Maharastra"}
     - [Arunachal Pradesh] {"entity":"state","value":"Arunachal Pradesh"}
     - [Punjab] {"entity":"state","value":"Punjab"}
-    - [Chhatisgarh] {"entity":"state","value":"Chhatisgarh"}
+    - [Chhattisgarh] {"entity":"state","value":"Chhattisgarh"}
     - [West Bengal] {"entity":"state","value":"West Bengal"}
     - [Assam] {"entity":"state","value":"Assam"}
     - [Goa] {"entity":"state","value":"Goa"}
     - [Himachal Pradesh] {"entity":"state","value":"Himachal Pradesh"}
     - [Sikkim] {"entity":"state","value":"Sikkim"}
+    - [Andaman and Nicobar Islands] {"entity":"state","value":"Andaman and Nicobar Islands"}
+    - [Bihar] {"entity":"state","value":"Bihar"}
+    - [Chandigarh] {"entity":"state","value":"Chandigarh"}
+    - [Dadra and Nagar Haveli and Daman and Diu] {"entity":"state","value":"Dadra and Nagar Haveli and Daman and Diu"}
+    - [Delhi] {"entity":"state","value":"Delhi"}
+    - [Haryana] {"entity":"state","value":"Haryana"}
+    - [Jammu and Kashmir] {"entity":"state","value":"Jammu and Kashmir"}
+    - [Jharkhand] {"entity":"state","value":"Jharkhand"}
+    - [Ladakh] {"entity":"state","value":"Ladakh"}
+    - [Lakshadweep] {"entity":"state","value":"Lakshadweep"}
+    - [Manipur] {"entity":"state","value":"Manipur"}
+    - [Meghalaya] {"entity":"state","value":"Meghalaya"}
+    - [Mizoram] {"entity":"state","value":"Mizoram"}
+    - [Nagaland] {"entity":"state","value":"Nagaland"}
+    - [Odisha] {"entity":"state","value":"Odisha"}
+    - [Sikkim] {"entity":"state","value":"Sikkim"}
+    - [Telangana] {"entity":"state","value":"Telangana"}
+    - [Tripura] {"entity":"state","value":"Tripura"}
+    - [Uttarakhand] {"entity":"state","value":"Uttarakhand"}
+    - [Uttar Pradesh] {"entity":"state","value":"Uttar Pradesh"}
+
+- intent: what_covid
+  examples: |
+    - What is Covid-19?
+
+- intent: symptoms_covid
+  examples: |
+    - Symptoms of Covid-19

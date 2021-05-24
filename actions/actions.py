@@ -32,6 +32,7 @@ from rasa_sdk.events import SlotSet, EventType
 from rasa_sdk.executor import CollectingDispatcher
 import webbrowser
 from rasa_sdk.types import DomainDict
+import requests
 
 class ValidateForm(Action):
     def name(self) -> Text:
@@ -60,5 +61,15 @@ class ActionSubmit(Action):
         tracker: Tracker,
         domain: "DomainDict",
     ) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(response="utter_status_answer",
-                                 State=tracker.get_slot("state"))
+        State=tracker.get_slot("state")
+        response = requests.get("https://api.apify.com/v2/key-value-stores/toDWvRj1JpTXiM8FF/records/LATEST").json()
+        message = "No such state exists"
+        for data in response["regionData"]:
+            if data["region"] == State.title():
+                
+                message = ("Active Cases: "+str(data["activeCases"])+ "\n" +
+                "Newly Infected: "+str(data["newInfected"])+ "\n" +
+                "Total Recovered: "+str(data["recovered"])+ "\n" +
+                "Total Deceased: "+str(data["deceased"])+ "\n" +
+                "Total Infected: "+str(data["totalInfected"]))
+        dispatcher.utter_message(message)

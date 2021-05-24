@@ -11,6 +11,8 @@ intents:
   - corona_states:
       use_entities: ["state"]
   - need_information
+  - what_covid
+  - symptoms_covid
 
 entities:
   - state
@@ -39,20 +41,60 @@ responses:
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
 
-  utter_help:
-  - text: "How can I help you"
+  utter_morehelp:
+  - text: "Anything else I can help you with?"
     buttons:
     - title: "Status on cases"
       payload: '/need_information'
+    - title: "What is Covid-19"
+      payload:  '/what_covid'
+    - title: "Symptoms of Covid-19"
+      payload: '/symptoms_covid'
+
+  utter_help:
+  - text: "Hey, How can I help you"
+    buttons:
+    - title: "Covid-19 Status"
+      payload: '/need_information'
+    - title: "What is Covid-19"
+      payload:  '/what_covid'
+    - title: "Symptoms of Covid-19"
+      payload: '/symptoms_covid'
+  
+  utter_geninfo:
+  - text: "Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.
+
+Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment.  Older people, and those with underlying medical problems like cardiovascular disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.
+
+The best way to prevent and slow down transmission is to be well informed about the COVID-19 virus, the disease it causes and how it spreads. Protect yourself and others from infection by washing your hands or using an alcohol based rub frequently and not touching your face. 
+
+The COVID-19 virus spreads primarily through droplets of saliva or discharge from the nose when an infected person coughs or sneezes, so it’s important that you also practice respiratory etiquette (for example, by coughing into a flexed elbow)."
+
+  utter_symptoms:
+  - text: "Most common symptoms:
+fever
+dry cough
+tiredness
+Less common symptoms:
+aches and pains
+sore throat
+diarrhoea
+conjunctivitis
+headache
+loss of taste or smell
+a rash on skin, or discolouration of fingers or toes
+Serious symptoms:
+difficulty breathing or shortness of breath
+chest pain or pressure
+loss of speech or movement
+Seek immediate medical attention if you have serious symptoms. Always call before visiting your doctor or health facility.
+People with mild symptoms who are otherwise healthy should manage their symptoms at home.
+On average it takes 5–6 days from when someone is infected with the virus for symptoms to show, however it can take up to 14 days."
+
+  
 
   utter_ask_state:
-  - text: "Which State?"
-#Need to add code for status
-  utter_status_answer:
-  - text: "You selected following {State}"
-
-  # utter_deletelater:
-  # - text: "wfafmwvqom"
+  - text: "Enter State's name"
 
 actions:
   - action_submit
@@ -60,7 +102,7 @@ forms:
   corona_tracker_form:
     state:
       - type: from_text
-        intent: corona_states
+        # intent: corona_states
 
 session_config:
   session_expiration_time: 60

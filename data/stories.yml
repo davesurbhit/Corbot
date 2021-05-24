@@ -11,23 +11,37 @@ stories:
 
 - story: sad path 1
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_that_help
   - intent: affirm
   - action: utter_happy
+  - action: utter_morehelp
 
 - story: sad path 2
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+  - action: utter_morehelp
+
+- story: corona information path
+  steps:
+  - intent: corona_states
+  - action: utter_help
+  - intent: what_covid
+  - action: utter_geninfo
+  - action: utter_morehelp
+
+- story: corona symptoms path
+  steps:
+  - intent: corona_states
+  - action: utter_help
+  - intent: symptoms_covid
+  - action: utter_symptoms
+  - action: utter_morehelp
 
 # - story: corona tracker
 #   steps:

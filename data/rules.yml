@@ -12,6 +12,11 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
+- rule: Return Help on Hi
+  steps:
+  - intent: greet
+  - action: utter_help
+
 - rule: Activate Form
   steps:
   - intent: need_information
@@ -27,3 +32,4 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: action_submit
+  - action: utter_morehelp
