@@ -13,6 +13,7 @@ intents:
   - need_information
   - what_covid
   - symptoms_covid
+  - what_if_positive
 
 entities:
   - state
@@ -50,6 +51,15 @@ responses:
       payload:  '/what_covid'
     - title: "Symptoms of Covid-19"
       payload: '/symptoms_covid'
+    - title: "What if I have tested positive?"
+      payload: '/what_if_positive'
+    - title: "No"
+      payload: '/deny'
+
+  utter_positive_help:
+  - text: "Unlike the previous waves, where the characteristic symptoms of infection were fever and cough, the second wave has presented with more non-specific symptoms like nausea, abdominal pain and tiredness.
+
+Once you have tested positive, it is important to isolate yourself, monitor your health and determine when you need medical attention. Most importantly, don’t panic – the majority of people will recover with only mild symptoms."
 
   utter_help:
   - text: "Hey, How can I help you"
@@ -57,9 +67,11 @@ responses:
     - title: "Covid-19 Status"
       payload: '/need_information'
     - title: "What is Covid-19"
-      payload:  '/what_covid'
+      payload: '/what_covid'
     - title: "Symptoms of Covid-19"
       payload: '/symptoms_covid'
+    - title: "What if I have tested positive?"
+      payload: '/what_if_positive'
   
   utter_geninfo:
   - text: "Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.

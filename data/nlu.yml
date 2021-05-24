@@ -146,3 +146,7 @@ nlu:
 - intent: symptoms_covid
   examples: |
     - Symptoms of Covid-19
+
+- intent: what_if_positive
+  examples: |
+    - What to do if I have tested positive?

@@ -26,6 +26,8 @@ stories:
   - intent: deny
   - action: utter_goodbye
   - action: utter_morehelp
+  - intent: deny
+  - action: utter_happy
 
 - story: corona information path
   steps:
@@ -34,6 +36,8 @@ stories:
   - intent: what_covid
   - action: utter_geninfo
   - action: utter_morehelp
+  - intent: deny
+  - action: utter_happy
 
 - story: corona symptoms path
   steps:
@@ -42,6 +46,18 @@ stories:
   - intent: symptoms_covid
   - action: utter_symptoms
   - action: utter_morehelp
+  - intent: deny
+  - action: utter_happy
+
+- story: corona tested positive path
+  steps:
+  - intent: corona_states
+  - action: utter_help
+  - intent: what_if_positive
+  - action: utter_positive_help
+  - action: utter_morehelp
+  - intent: deny
+  - action: utter_happy
 
 # - story: corona tracker
 #   steps:

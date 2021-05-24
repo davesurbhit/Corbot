@@ -33,6 +33,7 @@ from rasa_sdk.executor import CollectingDispatcher
 import webbrowser
 from rasa_sdk.types import DomainDict
 import requests
+from rasa_sdk.events import AllSlotsReset
 
 class ValidateForm(Action):
     def name(self) -> Text:
@@ -73,3 +74,4 @@ class ActionSubmit(Action):
                 "Total Deceased: "+str(data["deceased"])+ "\n" +
                 "Total Infected: "+str(data["totalInfected"]))
         dispatcher.utter_message(message)
+        return [AllSlotsReset()]
