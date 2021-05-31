@@ -14,6 +14,9 @@ intents:
   - what_covid
   - symptoms_covid
   - what_if_positive
+  - vaccine_tracker
+  - using_pincode
+  - using_district_id
 
 entities:
   - state
@@ -21,10 +24,30 @@ entities:
 slots:
   state:
     type: text
+  pincode:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  date:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  district_id:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  requested_slot:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+  - text: "Hey! I am Corbot. How can I help you?"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"
@@ -42,11 +65,30 @@ responses:
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
 
+  utter_which_method:
+  - text: "You can find vaccine slot availability information using:"
+    buttons:
+    - title: "Pincode"
+      payload: 'using_pincode'
+    - title: "District ID"
+      payload: 'using_ditrict_id'
+
+  utter_ask_pincode:
+  - text: Enter the Pincode
+
+  utter_ask_district_id:
+  - text: Enter the District ID
+
+  utter_ask_date:
+  - text: Enter date (Use DD-MM-YYYY format)
+
   utter_morehelp:
   - text: "Anything else I can help you with?"
     buttons:
     - title: "Status on cases"
       payload: '/need_information'
+    - title:  "Vaccine Availabity Checker"
+      payload: 'vaccine_tracker'
     - title: "What is Covid-19"
       payload:  '/what_covid'
     - title: "Symptoms of Covid-19"
@@ -66,12 +108,15 @@ Once you have tested positive, it is important to isolate yourself, monitor your
     buttons:
     - title: "Covid-19 Status"
       payload: '/need_information'
+    - title:  "Vaccine Availabity Checker"
+      payload: 'vaccine_tracker'
     - title: "What is Covid-19"
       payload: '/what_covid'
     - title: "Symptoms of Covid-19"
       payload: '/symptoms_covid'
     - title: "What if I have tested positive?"
       payload: '/what_if_positive'
+    
   
   utter_geninfo:
   - text: "Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.
@@ -110,11 +155,25 @@ On average it takes 5–6 days from when someone is infected with the virus for 
 
 actions:
   - action_submit
+  - action_district_submit
+  - action_pincode_submit
+  # - action_send_mail
+  # - action_restart
 forms:
   corona_tracker_form:
     state:
       - type: from_text
         # intent: corona_states
+  slot_pincode_form:
+    date:
+    - type: from_text
+    pincode:
+    - type: from_text
+  slot_district_form:
+    date:
+    - type: from_text
+    district_id:
+    - type: from_text
 
 session_config:
   session_expiration_time: 60

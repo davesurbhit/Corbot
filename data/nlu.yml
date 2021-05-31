@@ -150,3 +150,15 @@ nlu:
 - intent: what_if_positive
   examples: |
     - What to do if I have tested positive?
+
+- intent: vaccine_tracker
+  examples: |
+    - Vaccine Availabity Checker
+
+- intent: using_pincode
+  examples: |
+    - Pincode
+
+- intent: using_district_id
+  examples: |
+    - District ID

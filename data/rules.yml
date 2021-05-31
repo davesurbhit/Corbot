@@ -17,6 +17,11 @@ rules:
   - intent: greet
   - action: utter_help
 
+- rule: Vaccine notifier
+  steps:
+  - intent: vaccine_tracker
+  - action: utter_which_method
+
 - rule: Activate Form
   steps:
   - intent: need_information
@@ -32,4 +37,38 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: action_submit
+  - action: utter_morehelp
+
+- rule: Activate pincode form
+  steps:
+  - intent: using_pincode
+  - action: slot_pincode_form
+  - active_loop: slot_pincode_form
+
+- rule: Submit pincode form
+  condition:
+  - active_loop: slot_pincode_form
+  steps:
+  - action: slot_pincode_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_pincode_submit
+  - action: utter_morehelp
+
+- rule: Activate district form
+  steps:
+  - intent: using_district_id
+  - action: slot_district_form
+  - active_loop: slot_district_form
+
+- rule: Submit district form
+  condition:
+  - active_loop: slot_district_form
+  steps:
+  - action: slot_district_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_district_submit
   - action: utter_morehelp
