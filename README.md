@@ -19,3 +19,12 @@ Connected the chatbot to Telegram using Rasa channel connectors.
 2. Data of Vaccine slot availibility was gathered using Cowin API available on API Setu ([Link of the API](https://apisetu.gov.in/public/marketplace/api/cowin))
 
 ## Mockups
+<p align="left">
+  <img width="360" height="500" src="https://github.com/davesurbhit/Corbot-Covid-19-Chatbot/blob/master/Mockups/1.png">
+  <img width="360" height="500" src="https://github.com/davesurbhit/Corbot-Covid-19-Chatbot/blob/master/Mockups/2.png">
+  <img width="360" height="500" src="https://github.com/davesurbhit/Corbot-Covid-19-Chatbot/blob/master/Mockups/3.png">
+  <img width="360" height="500" src="https://github.com/davesurbhit/Corbot-Covid-19-Chatbot/blob/master/Mockups/4.png">
+  <img src="https://github.com/davesurbhit/Corbot-Covid-19-Chatbot/blob/master/Mockups/5.png">
+  <img width="360" height="500" src="https://github.com/davesurbhit/Corbot-Covid-19-Chatbot/blob/master/Mockups/6.png">
+
+</p>
