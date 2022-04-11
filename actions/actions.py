@@ -66,15 +66,11 @@ class ActionSubmit(Action):
     ) -> List[Dict[Text, Any]]:
         State=tracker.get_slot("state")
         response = requests.get("https://api.apify.com/v2/key-value-stores/toDWvRj1JpTXiM8FF/records/LATEST").json()
-        message = "No such state exists"
-        for data in response["regionData"]:
-            if data["region"] == State.title():
-                
-                message = ("Active Cases: "+str(data["activeCases"])+ "\n" +
-                "Newly Infected: "+str(data["newInfected"])+ "\n" +
-                "Total Recovered: "+str(data["recovered"])+ "\n" +
-                "Total Deceased: "+str(data["deceased"])+ "\n" +
-                "Total Infected: "+str(data["totalInfected"]))
+        message = ("Active Cases: "+str(response["activeCases"])+ "\n" +
+                "Newly Infected: "+str(response["activeCasesNew"])+ "\n" +
+                "Total Recovered: "+str(response["recovered"])+ "\n" +
+                "Total Deceased: "+str(response["deaths"])+ "\n" +
+                "Total Infected: "+str(response["totalCases"]))
         dispatcher.utter_message(message)
         return [AllSlotsReset()]
 
